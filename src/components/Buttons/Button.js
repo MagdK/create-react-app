@@ -5,10 +5,9 @@ function Button() {
     const [message, setMessage] = useState('Click me!');
     const [showButton, setShowButton] = useState(true); // 1st - current state, 2nd - set/change
 
-    const showOriginal = () => {
-        message.setMessage = 'Click me!'
-    }
-
+    // const showOriginal = () => {
+    //     message.setMessage = 'Click me!'
+    // }
 
     const onClick = (e) => {
         //console.log(`Clicked`)
@@ -17,14 +16,10 @@ function Button() {
             
         } else if(message === 'You clicked me!') {
             setMessage('Stop clicking me!')
-            
-        } /* else if(message === 'Stop clicking me!') {
-             
-            // setTimeout(() => {
-            //     setShowButton(true)
-            // }, 2000)
-            // setMessage('Click me')
-        } */
+        }   
+        setTimeout(() => {
+            setMessage('Click me!');
+            }, 3000);
     };
 
 
@@ -39,7 +34,7 @@ function Button() {
 
     return (
         <div>
-             {button}
+            {button}
         </div>
     );
 }
