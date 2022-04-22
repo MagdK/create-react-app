@@ -3,6 +3,60 @@ import { useState } from "react";
 function Button() {
     // https://www.robinwieruch.de/react-function-component/
     const [message, setMessage] = useState('Click me!');
+    const [showButton, setShowButton] = useState(true); // 1st - current state, 2nd - set/change
+
+    const showOriginal = () => {
+        message.setMessage = 'Click me!'
+    }
+
+
+    const onClick = (e) => {
+        //console.log(`Clicked`)
+        if(message === 'Click me!') {
+            setMessage('You clicked me!')
+            
+        } else if(message === 'You clicked me!') {
+            setMessage('Stop clicking me!')
+            
+        } /* else if(message === 'Stop clicking me!') {
+             
+            // setTimeout(() => {
+            //     setShowButton(true)
+            // }, 2000)
+            // setMessage('Click me')
+        } */
+    };
+
+
+    let button;
+        if(showButton) {
+            button = <div>
+            <button onClick={onClick}>{message}</button>
+        </div>
+        } else {
+            button = null;
+        }
+
+    return (
+        <div>
+             {button}
+        </div>
+    );
+}
+
+export default Button;
+
+
+
+
+
+
+
+/* Original - halfway done import { useState } from "react";
+
+function Button() {
+    // https://www.robinwieruch.de/react-function-component/
+    const [message, setMessage] = useState('Click me!');
         
     const showOriginal = () => {
         message.setMessage = 'Click me!'
@@ -24,8 +78,6 @@ function Button() {
         </div>
         
     );
-
-    setTimeout(showOriginal, 3000);
 }
 
-export default Button;
+export default Button; */
